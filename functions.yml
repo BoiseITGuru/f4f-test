@@ -1,0 +1,13 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080
+functions:
+  test:
+    lang: golang-middleware
+    handler: ./test
+    image: test:latest
+    annotations:
+      topic: flow-events
+      events:
+        - mainnet.A.1654653399040a61.FlowToken.TokensWithdrawn
